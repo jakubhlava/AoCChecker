@@ -43,7 +43,10 @@ with open(
 s = requests.session()
 s.cookies.set("session", os.getenv("SESSION"), domain="adventofcode.com")
 new_data = s.get(
-    f"https://adventofcode.com/{os.getenv('EVENT')}/leaderboard/private/view/{os.getenv('LEADERBOARD')}.json"
+    f"https://adventofcode.com/{os.getenv('EVENT')}/leaderboard/private/view/{os.getenv('LEADERBOARD')}.json",
+    headers={
+        "User-Agent": "https://github.com/jakubhlava/AoCChecker by j.hlava (at) post.cz"
+    },
 ).json()
 
 
